@@ -74,3 +74,28 @@
   white-space: nowrap !important;
   word-wrap: normal !important; /* 2 */
 }
+
+/**
+ * Text hyphenation
+ *
+ * Break strings with an hyphen when their length exceeds the width of
+ * their container
+ *
+ * 1. Fix for Firefox 3X+ that doesn't work well with word-break and hyphens
+ * 2. Safari 5.1+ and Mobile Safari (iOS 4.2+)
+ * 3. Firefox 6+
+ * 4. Internet Explorer 10+
+ */
+
+ @supports not (-moz-hyphens: auto) {
+   .u-textHyphenate {
+     word-break: break-all; /* 1 */
+   }
+ }
+ .u-textHyphenate {
+   word-wrap: break-word;
+   -webkit-hyphens: auto; /* 2 */
+   -moz-hyphens: auto; /* 3 */
+   -ms-hyphens: auto; /* 4 */
+    hyphens: auto;
+ }
